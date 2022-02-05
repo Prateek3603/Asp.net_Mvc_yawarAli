@@ -9,7 +9,7 @@ namespace Team8amRockingStars.Controllers
 {
     public class NewController : Controller
     {
-        // GET: New
+        // GET: New Commit Abdul
         public string Index()
         {
             return "Hello";
