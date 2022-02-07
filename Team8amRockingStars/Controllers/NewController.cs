@@ -97,12 +97,12 @@ namespace Team8amRockingStars.Controllers
             obj.EmpSalary = 678965;
             
             // object model=obj;
-            return View(obj);
+            return Content("test");
 
         }
 
 
-        public ActionResult SendMultipleModel()
+        public ViewResult SendMultipleModel()
         {
             List<EmployeeModel> listEmp = new List<EmployeeModel>();
 
@@ -145,6 +145,7 @@ namespace Team8amRockingStars.Controllers
             return View(empdept);
 
         }
+
 
     }
 }
