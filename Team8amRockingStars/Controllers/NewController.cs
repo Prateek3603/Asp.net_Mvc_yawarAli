@@ -101,6 +101,51 @@ namespace Team8amRockingStars.Controllers
 
         }
 
+
+        public ActionResult SendMultipleModel()
+        {
+            List<EmployeeModel> listEmp = new List<EmployeeModel>();
+
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "suchita";
+            obj.EmpSalary = 173833;
+
+            EmployeeModel obj1 = new EmployeeModel();
+            obj1.EmpId = 2;
+            obj1.EmpName = "Madhvi";
+            obj1.EmpSalary = 173833;
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Manoj";
+            obj2.EmpSalary = 273833;
+
+            listEmp.Add(obj);
+            listEmp.Add(obj1);
+            listEmp.Add(obj2);
+
+            List<DepartmentModel> listdept = new List<DepartmentModel>();
+
+            DepartmentModel dept = new Models.DepartmentModel();
+            dept.DeptId = 1211;
+            dept.DeptName = "Accounts";
+
+            DepartmentModel dept1 = new Models.DepartmentModel();
+            dept1.DeptId = 1212;
+            dept1.DeptName = "HR";
+
+            listdept.Add(dept);
+            listdept.Add(dept1);
+
+            EmpDept empdept = new EmpDept();
+            empdept.emp = listEmp;
+            empdept.dept = listdept;
+
+            return View(empdept);
+
+        }
+
     }
 }
 

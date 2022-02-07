@@ -1,0 +1,36 @@
+﻿@model Team8amRockingStars.Models.EmpDept
+@{
+    ViewBag.Title = "SendMultipleModel";
+}
+
+<h2>SendMultipleModel</h2>
+
+<table class="table table-bordered table-responsive table-striped">
+    <tr>
+        <th>EmpId</th>
+        <th>EmpName</th>
+        <th>EmpSalary</th>
+    </tr>
+    @foreach (var item in Model.emp)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmpSalary</td>
+        </tr>
+    }
+</table>
+
+<table class="table table-bordered table-responsive table-striped">
+    <tr>
+        <th>DeptId</th>
+        <th>DeptName</th>
+    </tr>
+    @foreach (var item in Model.dept)
+    {
+        <tr>
+            <td>@item.DeptId</td>
+            <td>@item.DeptName</td>
+        </tr>
+    }
+</table>
