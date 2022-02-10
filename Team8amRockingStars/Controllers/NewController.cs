@@ -147,9 +147,70 @@ namespace Team8amRockingStars.Controllers
         }
 
 
+        public ActionResult getMePartialView()
+        {
+            List<EmployeeModel> listEmp = new List<EmployeeModel>();
+
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "suchita";
+            obj.EmpSalary = 173833;
+
+            EmployeeModel obj1 = new EmployeeModel();
+            obj1.EmpId = 2;
+            obj1.EmpName = "Madhvi";
+            obj1.EmpSalary = 173833;
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Manoj";
+            obj2.EmpSalary = 273833;
+
+            listEmp.Add(obj);
+            listEmp.Add(obj1);
+            listEmp.Add(obj2);
+
+
+
+            return View(listEmp);
+        }
+
+        public PartialViewResult getMePartialView2()
+        {
+            List<EmployeeModel> listEmp = new List<EmployeeModel>();
+
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "suchita";
+            obj.EmpSalary = 173833;
+
+            EmployeeModel obj1 = new EmployeeModel();
+            obj1.EmpId = 2;
+            obj1.EmpName = "Madhvi";
+            obj1.EmpSalary = 173833;
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Manoj";
+            obj2.EmpSalary = 273833;
+
+            listEmp.Add(obj);
+            listEmp.Add(obj1);
+            listEmp.Add(obj2);
+
+
+
+            return PartialView("_MyPartialView",listEmp);
+        }
+
+        public RedirectResult GetRediretToChina()
+        {
+            return Redirect("~/new/SendMultipleModel");
+        }
     }
 }
 
+//yawarali17@gmail.com
 
 
 

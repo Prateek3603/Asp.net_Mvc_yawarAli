@@ -1,0 +1,25 @@
+﻿@model List<Team8amRockingStars.Models.EmployeeModel>
+@{
+    ViewBag.Title = "getMePartialView";
+}
+
+<h2>getMePartialView</h2>
+
+<ul>
+    <li>Madhvi</li>
+    <li>Rajesh</li>
+</ul>
+
+@{
+    var s = Html.Partial("_MyPartialView", Model);
+    int a = 10;
+    if (a == 10)
+    {
+        @s;
+    }
+   }
+@{
+
+ Html.RenderPartial("_MyPartialView", Model);
+    
+    }
