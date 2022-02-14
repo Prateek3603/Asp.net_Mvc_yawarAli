@@ -166,6 +166,7 @@
     <Content Include="Views\New\SendMultipleModel.cshtml" />
     <Content Include="Views\Shared\_MyPartialView.cshtml" />
     <Content Include="Views\New\getMePartialView.cshtml" />
+    <Content Include="Views\New\GetEmployees2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

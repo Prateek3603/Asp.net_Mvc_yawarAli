@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "GetEmployees2";
+}
+
+<h2>GetEmployees2</h2>
+
+<table id="Employee">
+    <tr>
+        <th>EmpId</th>
+        <th>EmpName</th>
+        <th>EmpSalary</th>
+    </tr>
+</table>
+
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+
+        url:"http://localhost:54997/new/GetEmployeeJson",
+        dataType: "json",
+        type: "GET",
+        success: function (result) {
+            $.each(result, function (index, key) {
+
+                $('#Employee').append('<tr><td>' + key.EmpId + '</td><td>' + key.EmpName + '</td><td>' + key.EmpSalary + '</td></tr>')
+
+            })
+        }
+
+    })
+    })
+
+</script>
