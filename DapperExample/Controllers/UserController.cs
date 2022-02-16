@@ -30,6 +30,7 @@ namespace DapperExample.Controllers
         {
             return View();
         }
+      
         [HttpPost]
         public ActionResult Create(EmployeeModel emp)
         {
@@ -37,6 +38,28 @@ namespace DapperExample.Controllers
             param.Add("@EmpName",emp.EmpName);
             param.Add("@EmpSalary",emp.EmpSalary);
             int result = con.Execute("sp_InsertEmployee",param:param, commandType: CommandType.StoredProcedure);
+            return RedirectToAction("index");
+        }
+
+        public ActionResult Edit(int ? id)
+        {
+            var param = new DynamicParameters();
+            param.Add("@EmpId", id);
+            var Employee = con.QueryFirstOrDefault<EmployeeModel>("[dbo].usp_getEmployeesById", param: param, commandType: CommandType.StoredProcedure);
+
+            return View(Employee);
+        }
+        [HttpPost]
+        public ActionResult Edit(EmployeeModel emp)
+        {
+            var param = new DynamicParameters();
+            param.Add("@Empid", emp.EmpId);
+            param.Add("@EmpName", emp.EmpName);
+            param.Add("@EmpSalary", emp.EmpSalary);
+
+
+            var Employee = con.Execute("[spr_updateEmployeeDetails]", param: param, commandType: CommandType.StoredProcedure);
+
             return RedirectToAction("index");
         }
     }

@@ -1,0 +1,17 @@
+﻿@model DapperExample.Models.EmployeeModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form action="~/User/Edit" method="post">
+    <input type="hidden" name="EmpId" value="@Model.EmpId" />
+    <label>Name</label>
+    <input type="text" name="EmpName" value="@Model.EmpName" class="form-control" /><br>
+
+    <label>Salary</label>
+    <input type="text" name="EmpSalary" value="@Model.EmpSalary" class="form-control" /><br>
+
+    <input type="submit" name="name" value="Save" />
+</form>
