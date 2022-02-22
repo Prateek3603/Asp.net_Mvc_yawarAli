@@ -25,6 +25,15 @@ namespace DapperExample.Controllers
             var Employees = con.Query<EmployeeModel>("[dbo].[sp_employee]",commandType:CommandType.StoredProcedure).ToList();
             return View(Employees);
         }
+        [HttpPost]
+        public ActionResult SearchEmployee(string EmpName)
+        {
+            var param = new DynamicParameters();
+            param.Add("@EmpName",  EmpName);
+            var Employees = con.Query<EmployeeModel>("[dbo].[spr_searchEmployeeByName]", param: param, commandType: CommandType.StoredProcedure).ToList();
+            return View("Index",Employees);
+        }
+        
 
         public ActionResult Create()
         {
