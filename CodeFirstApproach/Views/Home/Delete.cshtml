@@ -1,0 +1,11 @@
+﻿@model CodeFirstApproach.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<form action="~/Home/Delete/@Model.EmpId" method="post">
+    <input type="submit"  value="Delete" />
+</form>
