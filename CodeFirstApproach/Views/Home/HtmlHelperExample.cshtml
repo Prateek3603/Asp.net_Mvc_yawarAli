@@ -1,0 +1,39 @@
+﻿@model CodeFirstApproach.Models.EmployeeModel
+@{
+    ViewBag.Title = "HtmlHelperExample";
+}
+
+<script>
+    function fun()
+    {
+        alert('Hello World');
+    }
+ </script>
+<h2>HtmlHelperExample</h2>
+
+@Html.TextBox("EmpName", "Sridhar", new {@class="form-control" })
+
+@*1)EmpName -id,name
+2)Value-'sridhar'
+3)Attributes:-class,style,placeholder,deisable id,name,type*@
+
+<br />@Html.TextBoxFor(s => s.EmpName, new { @class = "form-control",@onclick="fun()" })
+
+<br />
+<span>Java</span>@Html.CheckBox("java", true)
+<span>Dotnet</span>@Html.CheckBox("Dotnet")
+
+<br />
+<span>Status</span>@Html.CheckBoxFor(s => s.status)<br />
+
+<span>Country</span>
+@Html.DropDownList("Country",new List<SelectListItem>() {
+
+new SelectListItem {Text="India",Value="1" },
+new SelectListItem {Text="japan",Value="2" },
+new SelectListItem {Text="China",Value="3" },
+
+},"Select Country")
+
+@Html.DropDownList("NamesofEmployee")<br />
+@Html.DropDownListFor(k=>k.EmpId,(IEnumerable<SelectListItem>)ViewBag.NamesofEmployee)

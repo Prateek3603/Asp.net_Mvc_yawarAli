@@ -16,6 +16,23 @@ namespace CodeFirstApproach.Controllers
         {
             return View(db.EmployeeModels.ToList());
         }
+        public ActionResult Index2()
+        {
+           var EmpDept = (from emp in db.EmployeeModels
+                           join dept in db.Departments
+                           on emp.DeptId equals dept.DeptId
+                           select new EmpdeptModel {
+                               EmpId=emp.EmpId,
+                              EmpName=emp.EmpName,
+                               EmpSalary=emp.EmpSalary,
+                               DepartName =dept.DeptName,
+
+                           }
+
+                         ).ToList();
+
+            return View(EmpDept);
+        }
 
         public ActionResult Create()
         {
@@ -81,6 +98,17 @@ namespace CodeFirstApproach.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public ActionResult HtmlHelperExample()
+        {
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpName = "Khader";
+            emp.status = true;
+
+            ViewBag.NamesofEmployee = new SelectList(db.EmployeeModels, "EmpId", "EmpName");
+            return View(emp);
         }
     }
 }

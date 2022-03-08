@@ -13,5 +13,6 @@ namespace CodeFirstApproach.Models
         }
 
         public DbSet<EmployeeModel> EmployeeModels { get; set; }
+        public DbSet<Department> Departments { get; set; }
     }
 }
