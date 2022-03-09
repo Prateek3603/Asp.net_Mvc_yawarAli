@@ -37,3 +37,24 @@ new SelectListItem {Text="China",Value="3" },
 
 @Html.DropDownList("NamesofEmployee")<br />
 @Html.DropDownListFor(k=>k.EmpId,(IEnumerable<SelectListItem>)ViewBag.NamesofEmployee)
+<p id="data"></p>
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#EmpId').on("change", function () {
+
+            alert($('#EmpId option:selected').text());
+            $.ajax({
+                url: 'http://localhost:56393/Home/GetJsonData',
+                data: { id: $('#EmpId option:selected').val() },
+                type: 'GET',
+                datatype: 'Json',
+                success: function (response) {
+                    debugger;
+                    $('#data').text(response[0].EmpId);
+                }
+
+            })
+        })
+    })
+</script>

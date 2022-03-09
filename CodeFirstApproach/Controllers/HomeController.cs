@@ -110,5 +110,15 @@ namespace CodeFirstApproach.Controllers
             ViewBag.NamesofEmployee = new SelectList(db.EmployeeModels, "EmpId", "EmpName");
             return View(emp);
         }
+
+        [HttpGet]
+        public ActionResult GetJsonData(int? id)
+        {
+            var emp = db.EmployeeModels.Where(s => s.EmpId == id);
+
+            return Json(emp,JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }
